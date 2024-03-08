@@ -3,10 +3,11 @@
     // No script needed for this component
 </script>
 
-<styl
+<style>
     .profile {
         display: flex;
         align-items: center;
+        justify-content: center;
         gap: 10px;
         margin-top: 20px;
         padding: 20px 120px; 
@@ -16,6 +17,7 @@
         width: 120px;
         height: 120px;
         border-radius: 50%;
+        border: 5px solid #EAEFF5;
     }
 
     .profile p {
