@@ -23,7 +23,7 @@
   }
 
   .image-container {
-    height: 136px; /* Max height for the image */
+    height: 136px; 
     width: 100%;
     overflow: hidden;
   }
@@ -37,11 +37,17 @@
 
   .description {
     padding: 16px;
+    height: 52px;
   }
 
   p {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1.5;
     margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
   }
 </style>

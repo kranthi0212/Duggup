@@ -1,32 +1,76 @@
 <!-- Timeline.svelte -->
-<script>
-  // Sample data for the timeline
+<script lang="ts">
+  import * as Avatar from "$lib/components/ui/avatar";
   let cards = [
-    { date: "Dec 2023",imageUrl: 'https://s3-alpha-sig.figma.com/img/ccdc/bd9b/5b2f7dca180260dd9a121e21e4ccb158?Expires=1710720000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=dOWBi6OHLSab0NnAaNUUXQkXB5~7u0al1jfpXxNgA0tlnAiMVIOqESi-PMhBkg8XTcM3Avu-~kmWy9R46SPhcRdaDFIUnCnnTw-Oi~LymMYl4APflb5NEEJnEIch5ZUw2mtvpnsXPg0AJtbR3wGRzECIOzQVAluoDWOxQDzqiDZPZBgbXQ0iWXyR9ecwlUY4LHEkdZ-ZeDkU3bU39Pw87Vt2Q7QsE9wY2baFiD7KLkYWCuoNm2DF6KoN5KkW6eKcM8C102~UPvSom0~4dxklFMeV6S4ZI3glmKDZVMJXXAcYsGQRYv-z8QtklRtpuE7ZuNM4CeF85M4OW5L8Ob848A__',
-    details: 'No amount of technology can convert a bad story into a good story.' },
-    {  date: "Jan 2024",imageUrl: 'https://via.placeholder.com/300', details: 'Description of Card 2', major: true },
-    {  date: "Jan 2024",imageUrl: 'https://via.placeholder.com/300', details: 'Description of Card 3' }
+    { 
+      date: "Dec 2023",
+      eventDetails: [
+        {
+          image : 'images/timeline/image_1.jpg',
+          title: 'No amount of technology can convert a bad story into a good story.'
+        },
+        {
+          image : 'images/timeline/image_2.jpg',
+          title: "Most people don't have original ideas. Here is how Sam Altman pushes himself to have unpopular ideas."
+        }
+      ],
+    },
+    {  
+      date: "Jan 2024",
+      eventDetails: [],
+      company: 'Duggup',
+      logo: 'images/timeline/duggup_logo.jpg',
+      position : 'Co-Founder and CEO',
+      workType : 'Full-time · Remote',
+      location : 'San Francisco Bay Area',
+      date : 'Nov 2023',
+      major: true
+    },
+    { 
+      date: "Dec 2023",
+      eventDetails: [
+        {
+          image : 'images/timeline/image_3.jpg',
+          title: 'No amount of technology can convert a bad story into a good story.'
+        },
+        {
+          image : 'images/timeline/image_4.png',
+          title: 'Your biggest regrets at 80 will be acts of omission.'
+        },
+      ],
+    },
+    {  
+      date: "Jan 2024",
+      eventDetails: [],
+      company: 'BetterUp',
+      position : 'VP Engineering',
+      logo : 'images/timeline/betterup_logo.jpg',
+      workType : 'Full-time',
+      location : 'San Francisco Bay Area',
+      date : 'Sep 2022',
+      major: true
+    },
   ];
-    let navLinks = [
-        { text: 'Home', iconLink: 'images/nav/home.svg' },
-        { text: 'Explore', iconLink: 'images/nav/explore.svg' },
-        { text: 'Learn', iconLink: 'images/nav/learn.svg' }
-    ];
-    import Card from './Card.svelte';
+  let navLinks = [
+    { text: 'Home', iconLink: 'images/nav/home.svg' },
+    { text: 'Explore', iconLink: 'images/nav/explore.svg' },
+    { text: 'Learn', iconLink: 'images/nav/learn.svg' }
+  ];
+  import Card from './Card.svelte';
 </script>
 
 <style>
   .timeline {
     display: flex;
     flex-direction: column;
-    padding : 0px 120px 60px 120px;
-    
+    padding: 0px 120px 60px 120px;
   }
 
   .event {
     display: flex;
     align-items: normal;
     margin-bottom: 2px;
+    height: 250px;
   }
 
   .date {
@@ -43,30 +87,31 @@
   .details {
     margin-left: 30px; 
     padding-left: 20px; 
+    margin-right: 20px;
   }
 
   .details img {
     max-width: 100%; 
   }
+  
   .dot {
-    width: 10px;
+    width: 11px;
     height: 10px;
     background-color: white;
     border-radius: 50%;
     border: 3px solid #0066FF;
     margin-right: -9px;
   }
+  
   .major-dot {
-    width: 10px;
+    width: 12px;
     height: 10px;
     background-color: white;
     border-radius: 50%;
     border: 9px solid #0066FF;
     margin-right: -15px;
   }
-  .date .details {
-    padding-right: 20px;
-  }
+  
   .arrow {
     position: absolute;
     top: 0;
@@ -77,6 +122,55 @@
     z-index: 1;
     margin-top: -6px;
   }
+
+  .company-details {
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    color: #7a9299;
+    font-style: inter;
+    font-weight: 400;
+    width: auto;
+  }
+
+  .company-details p{
+    margin: 0;
+  }
+
+  .event-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .event-details p {
+    margin: 0;
+    font-size: 12px;
+    color: #7a9299;
+    font-style: inter;
+    font-weight: 400;
+  }
+
+  .details img{
+    border-radius: 50%;
+  }
+
+  .position-details {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+  }
+
+  .position-details h2 {
+    margin: 0;
+    font-style: inter;
+    font-weight: 700;
+  }
+  
+  .card-container {
+    display: flex;
+  }
+  
   .major-event {
     margin-top: 8px;
   }
@@ -87,23 +181,37 @@
     <div class="event {event.major ? 'major-event' : ''}">
       <div class="date">
         {#if event.major}
-        <div class="arrow up"></div>
-        <div class="details">
-          {event.date}
-        </div> 
-          <div class="major-dot">
-          </div>
+          <div class="arrow up"></div>
+          <div class="details">
+            <img src={event.logo} alt="logo" width="40px" height="40px" />
+            {event.company}
+            <div class="company-details">
+              <p>San Francisco Bay Area</p>
+              <p>Joined</p>
+              <p>{event.date}</p>
+            </div>
+          </div> 
+          <div class="major-dot"></div>
         {:else}
-
-        <div class="details">
-          {event.date}
-        </div> 
-          <div class="dot">
-          </div>
+          <div class="details">
+            {event.date}
+          </div> 
+          <div class="dot"></div>
         {/if}
       </div>
-      <div class="details">
-          <Card imageUrl={event.imageUrl} description={event.details} />
+      <div class="details {event.major ? 'event-details' : ''}" >
+        {#if event.major}
+          <div class="position-details">
+            <h2>{event.position}</h2>
+            <p>{event.workType}</p>  
+          </div>
+        {:else}
+          <div class="card-container">
+            {#each event.eventDetails as image}
+              <Card imageUrl={image.image} description={image.title}/>
+            {/each}
+          </div>
+        {/if}
       </div>
     </div>
   {/each}

@@ -1,6 +1,12 @@
 <!-- Profile.svelte -->
 <script>
     let buttonText = "Follow";
+    let description = "Co-Founder and CEO at Duggup - Social network for people in tech. Ex-Amazon Head of Engineering. I write hot-takes on building a business, shipping delightful products and accelerating product and career growth.";
+    let companyName = "Duggup";
+    let companyLink = "https://duggup.com";
+    let position = "Co-Founder and CEO";
+    let firstName = "Krishna";
+    let lastName = "Kiran";
 
     const followed = () => {
         buttonText = buttonText === "Follow" ? "Followed" : "Follow";
@@ -8,6 +14,11 @@
 </script>
 
 <style>
+    .profile-container {
+        display: flex;
+        padding: 60px 120px 60px 240px;
+    }
+
     .profile {
         display: flex;
         flex-direction: column;
@@ -20,15 +31,112 @@
         border: 5px solid #EAEFF5;
     }
 
-    .profile p {
+    .profile-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .profile-info p {
+        font-weight: 700;
+        font-size: 20px;
+        color: #4B5C6D;
+        height: auto;
+        margin: 0;       
+    }
+
+    .profile-description {
         font-size: 14px;
         font-style: inter;
         color: #4D4D4D;
+        height: auto;
         margin: 0;
         max-width: 584px;
         height: 72px;
     }
 
+    .profile-content {
+        padding: 0px 60px;
+    }
+
+    .profile-description-container {
+        display: flex;
+        margin: 20px 0;
+    }
+
+    .profile-left-section {
+        width: 65%;
+    }
+
+    .profile-left-section p {
+        font-size: 14px;
+        font-style: inter;
+        color: #4D4D4D;
+        height: auto;
+        margin: 0;    
+    }
+
+    .profile-right-section {
+        width: 35%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .company-info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .company-name {
+        font-weight: 700;
+        font-size: 16px;
+        color: #4D4D4D;
+        height: auto;
+        margin: 0;
+    }
+
+    .position {
+        font-size: 12px;
+        color: #7A9299;
+        height: auto;
+        margin: 0;
+        font-weight: 400;
+    }
+
+    .button-container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .link-container{
+        display: flex;
+    }
+
+    .link-icon {
+        height: 13px;
+        width: 13px;
+        margin-top: 2px;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+
+    .link-text {
+        display: flex;
+        font-size: 14px;
+        color: #4D4D4D;
+    }
+
+    .company-logo-container {
+        display: flex;
+        flex-direction: row-reverse;
+    }
+
+    .menudots{
+        width: 20px;
+        height: 20px;
+    }
     .raised-button {
         box-shadow: 0px 4px 0px 0px #4D4D4D;
         background-color: white;
@@ -37,49 +145,48 @@
         margin-top: 4px;
         width: 120px;
     }
+
 </style>
 
-<div style="display: flex; padding: 60px 120px 60px 240px;">
+<div class="profile-container">
     <div class="profile">
-        <img src='https://media.licdn.com/dms/image/D4E03AQF-fLP5TtdtOQ/profile-displayphoto-shrink_400_400/0/1677089436637?e=1715212800&v=beta&t=J9-kSXKFOUgtVi6XPQhaWVHz74by4_pPnILLu6S3S6Y' alt="Profile Picture"/>
-        <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
-            <p style="font-weight: 600; font-size: 18px; color: #4D4D4D; height: auto;">Krishna</p>
-            <p style="font-weight: 600; font-size: 18px; color: #4D4D4D; height: auto;">&nbsp;Kiran</p>
+        <img src='images/profile/profile_pic.jpg' alt="Profile Picture"/>
+        <div class="profile-info">
+            <p>{firstName}</p>
+            <p>{lastName}</p>
         </div>
     </div>
-    <div style="padding: 0px 60px;">
-        <div style="display: flex; margin: 20px 0">
-            <div style="width: 65%; ">
-                <p style="font-size: 14px; font-style: inter; color: #4D4D4D; height: auto; margin: 0;">
-                    Co-Founder and CEO at Duggup - Social network for people in tech. Ex-Amazon Head of Engineering. I write hot-takes on building a business, shipping delightful products and accelerating product and career growth.
-                </p>
+    <div class="profile-content">
+        <div class="profile-description-container">
+            <div class="profile-left-section">
+                <p>{description}</p>
             </div>
-            <div style="width: 35%; display: flex; flex-direction: column;">
-                <div style = "display: flex; flex-direction: row-reverse">
-                    <img height="36px" width="36px" src="https://media.licdn.com/dms/image/D560BAQFHRBPTiTkqnA/company-logo_100_100/0/1687508146558/duggup_logo?e=1717632000&v=beta&t=xSqWU_IIJJTtXYzh2q7PTIulC5u7gsDwdq36CcPnU4U" alt="Logo">
+            <div class="profile-right-section">
+                <div class="company-logo-container">
+                    <img height="36px" width="36px" src="images/profile/company_logo.jpg" alt="Logo">
                 </div>
                 
-                <div style = "display: flex; flex-direction: column;  align-items: flex-end">
-                    <p style="font-weight: 700; font-size: 16px; color: #4D4D4D; height: auto; margin: 0; ">Duggup</p>
-                    <p style="font-size: 12px; color: #7A9299; height: auto; margin: 0;">Co-Founder and CEO</p>
+                <div class="company-info">
+                    <p class="company-name">{companyName}</p>
+                    <p class="position">{position}</p>
                 </div>
-               
             </div>
         </div>
-        <div style="display: flex; justify-content: space-between;">
+        <div class="button-container">
             <button class="raised-button" id="follow" on:click={() => followed()}>
                 {buttonText}
             </button>
 
-            <div style="display: flex; ">
-                        <a >
-                <span style="font-size: 14px; color: #4D4D4D;">
-                    My Website
-                </span>
-            </a>
-        <div style="height: 13px; width: 13px; margin-top:2px;margin-left: 5px">
-            <img src="images/profile/link.svg" alt="Profile"/>
-            </div>
+            <div class="link-container">
+                <a href={companyLink} target="_blank">
+                    <span class="link-text">
+                        My Website
+                        <div class="link-icon"><img src="images/profile/link.svg" alt="Profile"/></div>
+                    </span>
+                </a>
+                <div class="menudots">
+                 <img src="images/profile/menudots.svg" alt="Profile"/>
+                </div>
             </div>
         </div>
     </div>
