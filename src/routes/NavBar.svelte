@@ -46,6 +46,9 @@
         color: #4D4D4D;
         border: 0.5px solid #4D4D4D;
         margin-top: 4px;
+        &:hover {
+            cursor: pointer;
+        }
     }
 
     .logo {

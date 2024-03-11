@@ -144,6 +144,9 @@
         border: 0.5px solid #4D4D4D;
         margin-top: 4px;
         width: 120px;
+        &:hover {
+            cursor: pointer;
+        }
     }
 
 </style>
