@@ -1,6 +1,15 @@
-# create-svelte
+# Duggup
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+Duggup is a social network for people in tech.
+
+
+## Notes
+
+This project was generated with [SvelteKit](https://kit.svelte.dev/), a [Svelte](https://svelte.dev/) app generator.
+The project is hosted on [Vercel](https://duggup-rho.vercel.app/) and it's currently ready to deploy.
+All Static assets are within the `static` directory.
+This page is similar to this [Figma](https://www.figma.com/file/u1B8DTArPwpnzBcMR04fvH/Timeline---Duggup?type=design&node-id=7-9899&mode=design&t=G3wlcLCsemy8hbuh-0) page.
+The Mobile version needs to be improved.
 
 ## Creating a project
 
@@ -34,5 +43,3 @@ npm run build
 ```
 
 You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
